@@ -40,7 +40,7 @@
       const dt = Math.min(.05, Math.max(0, (now - (last || now)) / 1000)); last = now;
       let pad; try { pad = [...getPads()].find(p => p?.connected && p.mapping === 'standard'); } catch {}
       if (!pad || document.hidden || !document.hasFocus() || !active()) {
-        apply(empty()); toggleHeld = false; status(pad ? 'Controller paused' : 'Press a controller button to connect');
+        apply(empty()); toggleHeld = false; status(pad ? 'Controller paused · ' + (driving ? 'Driving' : 'On foot') : 'Press a controller button to connect');
       } else {
         const toggle = !!pad.buttons[8]?.pressed && !!pad.buttons[9]?.pressed;
         if (toggle && !toggleHeld) driving = !driving;
