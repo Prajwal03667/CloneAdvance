@@ -7,7 +7,7 @@
     panel.style.cssText = 'position:fixed;top:64px;left:16px;z-index:10002;background:#10171c;color:#eef4f8;padding:20px;width:min(420px,90vw);border:1px solid #52616b;border-radius:12px;font:15px/1.5 system-ui;max-height:75vh;overflow:auto';
     panel.innerHTML = '<h2>Controller & cheats</h2><p id="pad-status" role="status"></p><p>Click the game to capture the mouse. View + Menu switches on-foot/driving controls. F7 closes this panel.</p><hr><p>Experimental cheat entry: open the game cheat console first, then send a code. Codes can be unavailable during missions or in this snapshot. Keep a clean save.</p><button id="open-console">Open game cheat console</button><p><label>Code <select id="cheat-code"></select></label></p><button id="send-cheat">Send selected code</button><p id="cheat-status" role="status"></p><p>No money cheat, GTA Online vehicles, or multiplayer is supplied.</p><a href="/__enhanced/" style="color:#c5f099">Return to launcher (ends this session)</a>';
     const toggle = document.createElement('button'); toggle.textContent = 'Controller / cheats · F7';
-    toggle.style.cssText = 'position:fixed;left:16px;top:12px;z-index:10001;padding:10px;background:#17232b;color:white;border:1px solid #536875;border-radius:6px';
+    toggle.style.cssText = 'position:fixed;right:16px;bottom:12px;z-index:10001;padding:10px;background:#17232b;color:white;border:1px solid #536875;border-radius:6px';
     document.body.append(toggle, panel);
     const status = panel.querySelector('#pad-status'), message = panel.querySelector('#cheat-status');
     const controller = PlayGTA5Controller.attach({...input, active:() => !panel.hidden ? false : true,

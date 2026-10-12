@@ -73,7 +73,7 @@ The catalog covers the familiar PC codes, including health, weapons, wanted leve
 
 ## FPS testing
 
-Start at **720p / 60 / shadows off**. If it struggles, choose **540p**, then a **30 FPS cap** for consistent pacing. Only compare uncapped runs after shaders finish preparing, in the same save/location/camera. Record GPU, driver, browser, resolution, preset, FPS and any stalls. A 200 FPS cap/claim cannot make hardware render at 200 FPS; this engine's exposed choices are 30, 60 and uncapped.
+Start at **720p / 60 / shadows off**. Press **=** in game to toggle the existing engine FPS counter (presented frames, not a browser animation counter). If it struggles, choose **540p**, then a **30 FPS cap** for consistent pacing. Only compare uncapped runs after shaders finish preparing, in the same save/location/camera. Record GPU, driver, browser, resolution, preset, FPS and any stalls. A 200 FPS cap/claim cannot make hardware render at 200 FPS; this engine's exposed choices are 30, 60 and uncapped.
 
 The original build already uses its fast script interpreter and suppresses noisy script logs. This launcher exposes existing settings; no new renderer optimization or measured FPS uplift is claimed.
 
@@ -82,6 +82,7 @@ The original build already uses its fast script interpreter and suppresses noisy
 ```sh
 node tests/controller.cjs
 node tests/extras.cjs
+node tests/launcher.cjs
 python3 -m unittest discover -s tests -v
 ```
 
