@@ -7,8 +7,10 @@ A separate community launcher for an **existing [PlayGTA5 installation](https://
 ## Start here
 
 1. Install and verify the complete game from the main repo. Keep `mirror`, `runtime`, and your browser saves.
-2. Download **Code → Download ZIP** from this repo and extract it beside your existing installation.
-3. Close the old local server so port 8000 is free. Run the following in this repo's extracted folder, replacing the installation path.
+2. [Download the launcher ZIP](https://github.com/alihammoud21/playgta5-enhanced/archive/refs/heads/main.zip) and extract it beside your existing installation.
+3. Close the old local server so port 8000 is free. On **Windows**, double-click **Launch-Enhanced.cmd**. On **Mac**, open Terminal in the extracted folder and run **`bash Launch-Enhanced.command`**. Paste the existing PlayGTA5 installation folder when asked (the folder containing `mirror` and the main helpers).
+
+For command-line options, run these commands in the enhanced repo's folder, replacing the installation path:
 
 Windows PowerShell (uses the main installation's bundled Python):
 
