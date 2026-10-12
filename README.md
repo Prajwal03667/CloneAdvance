@@ -2,7 +2,6 @@
 
 A separate community launcher for an **existing [PlayGTA5 installation](https://github.com/alihammoud21/playgta5)**. It adds controller input, selectable performance presets, a cheat-code panel, and a shortcut to the snapshot's existing `env_test` development map. No second 21 GB download is needed.
 
-**Experimental:** automated input/server tests are not hardware gameplay validation. This does not include Michael-McGehee1's source, reproduce his FPS measurements, or promise 200 FPS. This repo is open for contributions; Michael has not agreed to become a collaborator.
 
 ## Start here
 
