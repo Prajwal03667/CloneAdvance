@@ -12,6 +12,9 @@
     const status = panel.querySelector('#pad-status'), message = panel.querySelector('#cheat-status');
     const controller = PlayGTA5Controller.attach({...input, active:() => !panel.hidden ? false : true,
       status:text => { if (status.textContent !== text) status.textContent = text; }});
+    const modeButton = document.createElement('button'); modeButton.textContent = 'Switch to driving controls';
+    modeButton.onclick = () => { modeButton.textContent = controller.toggleMode() ? 'Switch to on-foot controls' : 'Switch to driving controls'; };
+    status.after(modeButton);
     function show() { panel.hidden = !panel.hidden; controller.release(); if (!panel.hidden) document.exitPointerLock(); }
     toggle.onclick = show;
     addEventListener('keydown', e => {

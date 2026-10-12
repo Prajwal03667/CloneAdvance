@@ -21,4 +21,8 @@ events.keyup[0]({isTrusted:true,code:'KeyW'}); keys[87]=0;
 pads=[pad]; frame(58); events.blur[0](); assert.equal(keys[87],0); assert.equal(w[5],0);
 document.hidden=true; frame(74); assert.equal(keys[87],0);
 document.hidden=false; pads=[{...pad,mapping:''}]; frame(90); assert.equal(keys[87],0);
+pads=[pad]; pad.buttons[8].pressed=pad.buttons[9].pressed=true; frame(106);
+assert.equal(keys[27],0); assert.equal(keys[86],0);
+pad.buttons[8].pressed=false; frame(122); assert.equal(keys[27],0);
+pad.buttons[9].pressed=false; frame(138); pad.buttons[9].pressed=true; frame(154); assert.equal(keys[27],128);
 console.log('PASS: mappings, deadzone, camera, physical key overlap, disconnect/blur and unsupported mapping');

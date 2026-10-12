@@ -1,6 +1,6 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
 const nodes=new Map();
-function node(){return {style:{},hidden:false,textContent:'',value:'TOOLUP',children:[],append(...n){this.children.push(...n)},contains(){return false},addEventListener(){},querySelector(id){if(!nodes.has(id))nodes.set(id,node());return nodes.get(id)}};}
+function node(){return {style:{},hidden:false,textContent:'',value:'TOOLUP',children:[],after(){},append(...n){this.children.push(...n)},contains(){return false},addEventListener(){},querySelector(id){if(!nodes.has(id))nodes.set(id,node());return nodes.get(id)}};}
 let install;
 const context=vm.createContext({globalThis:{},PlayGTA5Controller:{attach:()=>({release(){}})},document:{createElement:node,body:node(),exitPointerLock(){}},addEventListener(){},fetch:async()=>({ok:true,json:async()=>JSON.parse(fs.readFileSync('web/cheats.json'))}),setTimeout:fn=>fn(),Atomics});
 vm.runInContext(fs.readFileSync('web/extras.js','utf8'),context);
