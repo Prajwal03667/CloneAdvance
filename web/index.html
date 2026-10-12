@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>PlayGTA5 Enhanced · Experimental launcher</title><link rel="stylesheet" href="/__enhanced/style.css"></head>
+<body><main><header><div><p class="eyebrow">COMMUNITY EXPERIMENT / 01</p><h1>PlayGTA5 Enhanced</h1><p>Choose your world. Tune it for your machine.</p></div><a href="/__support/">Browser checks ↗</a></header>
+<p class="notice">Experimental launcher. Controller input and cheat delivery have automated checks; hardware gameplay testing is still needed.</p>
+<section><h2>Play</h2><div class="modes">
+<button data-mode="continue"><small>STORY</small><strong>Continue story</strong><span>Loads the newest save on this browser origin.</span></button>
+<button data-mode="new"><small>STORY</small><strong>New story</strong><span>Starts the prologue. Existing saves are kept.</span></button>
+<button data-mode="sandbox"><small>FREE ROAM</small><strong>Los Santos</strong><span>Uses this build's existing sandbox mode.</span></button>
+<button data-mode="dev"><small>EXPERIMENTAL</small><strong>GTA VI dev map</strong><span>Launches the bundled env_test level. This is not the released GTA VI game.</span></button>
+</div></section>
+<div class="columns"><section><h2>Performance</h2>
+<label>Quality <select id="quality"><option value="960x540">540p · performance</option><option value="1280x720" selected>720p · balanced</option><option value="1920x1080">1080p · light</option></select></label>
+<label>Frame-rate cap <select id="fps"><option value="30">30 · lower load</option><option value="60" selected>60</option><option value="0">Uncapped · benchmark</option></select></label>
+<label class="check"><input id="shadows" type="checkbox"> Enable low-quality shadows</label>
+<p>All presets use the engine's lighter scene settings. An FPS cap is not a promised result. Compare the same scene after shader preparation.</p></section>
+<section><h2>Controller</h2><p id="controller-status" role="status">Connect a controller and press a button.</p><p>Standard browser gamepads, including compatible Xbox/PlayStation pads. Movement uses keyboard emulation; the right stick controls the camera after clicking the game.</p><p><strong>View + Menu / Share + Options:</strong> switch between on-foot and driving controls. Open <strong>F7</strong> in game for the controller status and cheat panel.</p><a href="https://github.com/alihammoud21/playgta5-enhanced#controller-controls">Full controls ↗</a></section>
+<section><h2>Saves & memory</h2><p>Keep the same browser profile, hostname and port to keep using your saves. Continue story omits the new-game flag.</p><p>The engine starts with its existing 3 GiB allocation. Advanced users can opt into 4 GiB using <code>--engine-ram 4</code>. Increasing it is experimental and does not guarantee higher FPS.</p><p>A custom 3 GiB streaming budget and Michael's changes are pending source review; they are not included.</p><a href="https://github.com/alihammoud21/playgta5/issues/11">Save troubleshooting ↗</a></section></div>
+<footer><a href="https://github.com/alihammoud21/playgta5">Main downloads & support</a><p>No multiplayer or additional GTA Online vehicle assets are included. No 90–200 FPS claim has been validated for this launcher.</p></footer>
+</main><script src="/__enhanced/launcher.js"></script></body></html>

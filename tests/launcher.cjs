@@ -1,0 +1,11 @@
+const assert=require('node:assert/strict'),fs=require('node:fs'),vm=require('node:vm');
+const fields={quality:{value:'1280x720',options:[{value:'960x540'},{value:'1280x720'},{value:'1920x1080'}]},fps:{value:'60',options:[{value:'30'},{value:'60'},{value:'0'}]},shadows:{checked:false}};
+const buttons=['continue','new','sandbox','dev'].map(mode=>({dataset:{mode}}));
+let result;
+const context=vm.createContext({document:{getElementById:id=>fields[id],querySelectorAll:()=>buttons},localStorage:{getItem:()=>'{"quality":"malicious","fps":"200"}',setItem(){}},URLSearchParams,location:{assign:url=>result=url},setInterval(){}});
+vm.runInContext(fs.readFileSync('web/launcher.js','utf8'),context);
+assert.equal(fields.quality.value,'1280x720');assert.equal(fields.fps.value,'60');
+buttons[0].onclick();let q=new URL(result,'http://localhost').searchParams;assert.equal(q.get('mode'),'story');assert.equal(q.has('newgame'),false);
+buttons[1].onclick();q=new URL(result,'http://localhost').searchParams;assert.equal(q.get('newgame'),'1');
+buttons[3].onclick();q=new URL(result,'http://localhost').searchParams;assert.equal(q.get('mode'),'sandbox');assert.equal(q.get('map'),'env_test');assert.equal(q.has('newgame'),false);
+console.log('PASS: continue/new story, development map, and invalid stored setting rejection');

@@ -1,0 +1,14 @@
+[
+ ["PAINKILLER","Invincibility"],["TURTLE","Health and armour"],["TOOLUP","Weapon set"],
+ ["LAWYERUP","Lower wanted level"],["FUGITIVE","Raise wanted level"],["POWERUP","Special ability"],
+ ["CATCHME","Faster running"],["GOTGILLS","Faster swimming"],["HOPTOIT","Super jump"],
+ ["DEADEYE","Slow aiming"],["HOTHANDS","Explosive punches"],["HIGHEX","Explosive ammunition"],
+ ["INCENDIARY","Flaming ammunition"],["SKYDIVE","Parachute"],["SKYFALL","Skyfall"],
+ ["LIQUOR","Drunk mode"],["FLOATER","Low gravity"],["SNOWDAY","Slippery vehicles"],
+ ["SLOWMO","Slow motion"],["MAKEITRAIN","Change weather"],
+ ["BANDIT","BMX"],["BUZZOFF","Buzzard"],["COMET","Comet"],["FLYSPRAY","Duster"],
+ ["HOLEIN1","Caddy"],["OFFROAD","Sanchez"],["RAPIDGT","Rapid GT"],["ROCKET","PCJ-600"],
+ ["TRASHED","Trashmaster"],["VINEWOOD","Limousine"],["BARNSTORM","Stunt plane"],
+ ["DEATHCAR","Duke O'Death (requires unlock)"],["BUBBLES","Kraken (requires unlock)"],
+ ["EXTINCT","Dodo (requires unlock)"],["JRTALENT","Director Mode (build dependent)"]
+]
