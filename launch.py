@@ -15,7 +15,7 @@ def enhance_page(code):
     marker = 'Atomics.store(w, MY, H >> 1);'
     if code.count(marker) != 1 or code.count('<head>') != 1:
         raise ValueError('Unsupported game page. Use the full-game-v1 snapshot; no files were modified.')
-    code = code.replace('<head>', '<head><script src="/__enhanced/controller.js"></script><script src="/__enhanced/extras.js"></script>', 1)
+    code = code.replace('<head>', '<head><script>window.PlayGTA5Enhanced=true;</script><script src="/__enhanced/controller.js"></script><script src="/__enhanced/extras.js"></script>', 1)
     return code.replace(marker, marker + '\nwindow.PlayGTA5Extras.install({keys, w, U16, VK, canvas});', 1)
 
 

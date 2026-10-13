@@ -40,7 +40,7 @@
       const dt = Math.min(.05, Math.max(0, (now - (last || now)) / 1000)); last = now;
       let pad; try { pad = [...getPads()].find(p => p?.connected && p.mapping === 'standard'); } catch {}
       if (!pad || document.hidden || !document.hasFocus() || !active()) {
-        apply(empty()); toggleHeld = false; status(pad ? 'Controller paused · ' + (driving ? 'Driving' : 'On foot') : 'Press a controller button to connect');
+        apply(touchInput(empty())); toggleHeld = false; status(pad ? 'Controller paused · ' + (driving ? 'Driving' : 'On foot') : 'Press a controller button to connect');
       } else {
         const toggle = !!pad.buttons[8]?.pressed && !!pad.buttons[9]?.pressed;
         if (toggle && !toggleHeld) driving = !driving;
@@ -48,7 +48,7 @@
         const next = map(pad, driving);
         if (toggleHeld) { next.keys.delete('Escape'); next.keys.delete('KeyV'); }
         if (!pad.buttons[8]?.pressed && !pad.buttons[9]?.pressed) toggleHeld = false;
-        apply(next);
+        apply(touchInput(next));
         if (document.pointerLockElement === canvas) {
           remainderX += next.lookX * 900 * dt; remainderY += next.lookY * 900 * dt;
           const dx = Math.trunc(remainderX), dy = Math.trunc(remainderY);
@@ -60,6 +60,16 @@
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
+    function touchInput(next) {
+      if (document.hidden || !document.hasFocus() || !active()) { globalThis.PlayGTA5Touch?.release(); return next; }
+      const touch = globalThis.PlayGTA5Touch?.sample();
+      if (touch) {
+        for (const key of touch.keys) next.keys.add(key);
+        next.mouse |= touch.mouse;
+        Atomics.add(w, 2, touch.dx); Atomics.add(w, 3, touch.dy);
+      }
+      return next;
+    }
     return {release, toggleMode:() => { driving = !driving; return driving; }};
   }
   globalThis.PlayGTA5Controller = {axis, map, attach};
